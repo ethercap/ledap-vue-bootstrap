@@ -1,6 +1,6 @@
 {
   "name": "ledap-vue-bootstrap",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ledap theme suitable in vue and bootstrap",
   "main": "index.js",
   "scripts": {
