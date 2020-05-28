@@ -6,7 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethercap/ledap-vue-bootstrap.git"
+  },
+  "author": "ether",
+  "homepage": "https://github.com/ethercap/ledap-vue-bootstrap",
   "license": "ISC",
   "devDependencies": {}
 }
