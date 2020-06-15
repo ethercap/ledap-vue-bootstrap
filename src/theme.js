@@ -1,4 +1,4 @@
-var themeConfig = {
+const themeConfig = {
     "form-item": {
         template: `<component :is="tag" class="form-group row">
             <slot name="label" :model="model" :attr="attr">
@@ -98,4 +98,4 @@ var themeConfig = {
         </component>`,
     }
 };
-module.exports = themeConfig;
+export default themeConfig;
