@@ -1,9 +1,8 @@
 const themeConfig = {
-    "form-item": {
+    'form-item': {
         template: `<component :is="tag" class="form-group row">
             <slot name="label" :model="model" :attr="attr">
-                <label class="col-sm-3 col-form-label text-right"> {{label || model.getAttributeLabel(attr)}}{{model.isRequired(attr) ? '*' : ''}}
-                </label>
+                <label class="col-sm-3 col-form-label text-right"> {{label || model.getAttributeLabel(attr)}}{{model.isRequired(attr) ? '*' : ''}}</label>
             </slot>
             <div class="col-sm-9">
                 <slot :model="model" :attr="attr" :validate="validate" :inputListeners="inputListeners">
@@ -17,7 +16,7 @@ const themeConfig = {
             </div>
         </component>`,
     },
-    "baseinput": {
+    baseinput: {
         template: `<div><template v-if="tag !== 'textarea'">
             <input class="form-control" :name="attr" :value="model[attr]" :placeholder="model.getAttributeHint(attr)" v-on="inputListeners" v-bind="$attrs" :maxlength="cMaxlength">
         </template>
@@ -26,12 +25,12 @@ const themeConfig = {
             </textarea>
         </template></div>`,
     },
-    "dropdown": {
+    dropdown: {
         template: `<select class="form-control" :name="attr" v-on="inputListeners" v-bind="$attrs">
             <option v-for="key in dictOption.order" :value="key" :selected="key === model[attr]">{{dictOption.list[key]}}</option>
         </select>`,
     },
-    "groupinput": {
+    groupinput: {
         template: `<group class="btn-group" :max="dictOption.max" :excludes="dictOption.excludes" :init-value="model[attr]" :multiple="dictOption.multiple" @change="groupChange">
             <slot name="default" v-for="key in dictOption.order" :attr="attr" :data-key="key" :value="dictOption.list[key]" :disabled="hasKey(dictOption.excludes, key) ? true : false">
                 <tab class="btn btn-outline-primary" :disabled="hasKey(dictOption.excludes, key) ? true : false" :data-key="key" :key="key"> {{dictOption.list[key]}}</tab>
@@ -50,7 +49,7 @@ const themeConfig = {
     },
     select2: {
         template: `<div class="position-relative">
-    <div class="form-control d-flex align-items-center" style="height:auto">
+    <div class="form-control d-flex flex-wrap align-items-center" style="height:auto">
         <span v-if="multiple" v-for="model,key in selected" :key="key">
             <button class="btn btn-sm btn-light" @click="choose(model, key, $event)">{{model[itemName]}}{{'  x'}}</button>&nbsp;
         </span>
@@ -96,6 +95,27 @@ const themeConfig = {
         <component :is="tagName" :class="{'active text-success': isOpen()}">
             <slot></slot>
         </component>`,
+    },
+    checkbox: {
+        template: `<component :is="tagName" class="custom-control custom-checkbox" :class="{'active': isOpen()}" @click="click">
+            <slot name="input" :isOpen="isOpen" :disabled="disabled">
+                <input class="custom-control-input" type="checkbox" :name="attr" :checked="isOpen()" :disabled="disabled" v-bind="$attrs"/>
+            </slot>
+            <label class="custom-control-label">
+                <slot></slot>
+            </label>
+        </component>`
+    },
+    radio: {
+        template: `
+        <component :is="tagName" class="custom-control custom-radio" :class="{'active': isOpen()}" @click="click">
+            <slot name="input" :isOpen="isOpen" :disabled="disabled">
+                <input type="radio" class="custom-control-input" :disabled="disabled" :checked="isOpen()" :name="attr" v-bind="$attrs"/>
+            </slot>
+            <label class="custom-control-label">
+                <slot></slot>
+            </label>
+        </component>`
     }
 };
 export default themeConfig;
