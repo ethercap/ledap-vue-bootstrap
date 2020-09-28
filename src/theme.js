@@ -2,9 +2,9 @@ const themeConfig = {
     'form-item': {
         template: `<component :is="tag" class="form-group row">
             <slot name="label" :model="model" :attr="attr">
-                <label class="col-sm-3 col-form-label text-right"> {{label || model.getAttributeLabel(attr)}}{{model.isRequired(attr) ? '*' : ''}}</label>
+                <label class="col-3 col-form-label text-right"> {{label || model.getAttributeLabel(attr)}}{{model.isRequired(attr) ? '*' : ''}}</label>
             </slot>
-            <div class="col-sm-9">
+            <div class="col-9">
                 <slot :model="model" :attr="attr" :validate="validate" :inputListeners="inputListeners">
                     <baseinput :model="model" :attr="attr" :inputListeners="inputListeners" v-bind="$attrs"></baseinput>
                 </slot>
