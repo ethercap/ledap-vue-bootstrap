@@ -4,8 +4,8 @@
   "description": "ledap theme suitable in vue and bootstrap",
   "main": "./lib/ledap-vue-bootstrap.umd.min.js",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "lib": "vue-cli-service build --target lib --name ledap-vue-bootstrap --dest lib ./src/main.js"
+    "serve": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service serve",
+    "lib": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service build --target lib --name ledap-vue-bootstrap --dest lib ./src/main.js"
   },
   "repository": {
     "type": "git",
